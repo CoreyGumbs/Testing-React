@@ -34,7 +34,7 @@ export default function StarWarsCharacters() {
   };
 
   return (
-    <div>
+    <div data-testid="starwarschar-component">
       {isLoading ? (
         <Loader
           type="ThreeDots"

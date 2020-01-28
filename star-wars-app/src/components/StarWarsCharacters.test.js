@@ -4,14 +4,19 @@ import '@testing-library/jest-dom';
 
 import StarWarsCharacters from './StarWarsCharacters';
 
+const component = <StarWarsCharacters/>;
 
-// test('Renders StarWarsCharacters Component', () => {
-//      //ARRANGE//ACT//ASSERT
-//     const {getByText} = render(<StarWarsCharacters/>);
-//     expect(getByText(/previous/i)).toBe('Previous');
-//     getByText(/next/i);
-// });
+test('StarWarsCharacters component renders', () => {
+    const { getByTestId} = render(component);
 
-test('', () => {
-
+    getByTestId(/starwarschar-component/i);
+    expect(getByTestId(/starwarschar-component/i)).not.toHaveTextContent(/luke skywalker/i);
+   
 });
+
+
+test('Buttons rendered in component', () => {
+    const {queryAllByRole, getByText} = render(component);
+    getByText(/previous/i);
+    getByText(/next/i);
+})
